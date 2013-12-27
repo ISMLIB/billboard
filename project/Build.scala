@@ -24,10 +24,23 @@ object Billborad extends Build {
 
 object Dependencies {
 
-  val sprayVersion = "1.2-RC3"
+  val sprayVersion = "1.2.0"
   val akkaVersion = "2.2.3"
 
-  val libs = Seq()
+  val libs = Seq(
+    // ---- application dependencies ----
+    "io.spray"            %   "spray-can"     % sprayVersion,
+    "io.spray"            %   "spray-routing" % sprayVersion,
+    "io.spray"            %   "spray-client"  % sprayVersion,
+    "io.spray"            %   "spray-caching" % sprayVersion,
+    "io.spray"            %%  "spray-json"    % "1.2.5",
+    "com.typesafe.akka"   %%  "akka-actor"    % akkaVersion,
+    "com.typesafe.akka"   %%  "akka-slf4j"    % akkaVersion,
+    // ---- test dependencies ----
+    "io.spray"            %   "spray-testkit" % sprayVersion % "test",
+    "com.typesafe.akka"   %%  "akka-testkit"  % akkaVersion % "test",
+    "org.specs2"          %%  "specs2"        % "1.14" % "test"
+  )
 
 }
 
